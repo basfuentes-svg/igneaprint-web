@@ -913,6 +913,42 @@
     if(e.key === 'Escape') hideSocialSoon();
   });
 
+  // Convierte el nombre de un producto en un identificador de URL estable (slug)
+  function slugify(str){
+    return (str || '').toString()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase().trim()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+
+  // Dominio público del sitio: la URL que se comparte/precarga en el formulario
+  // siempre apunta aquí, sin importar si se está probando en local o en otro entorno
+  const SITE_BASE_URL = 'https://igneaprint.cl/';
+
+  // Actualiza (o quita) el parámetro ?producto= en la barra de direcciones local
+  // (sin recargar la página) y devuelve la URL PÚBLICA equivalente
+  // (siempre con el dominio real del sitio), o null si se quitó el parámetro.
+  function setProductoUrlParam(slug){
+    const url = new URL(window.location.href);
+    if(slug){ url.searchParams.set('producto', slug); }
+    else { url.searchParams.delete('producto'); }
+    history.replaceState(null, '', url.pathname + url.search + url.hash);
+    if(!slug) return null;
+    const publica = new URL(SITE_BASE_URL);
+    publica.search = url.search;
+    return publica.href;
+  }
+
+  // Guarda el último valor que autocompletamos en el campo "enlace a tu archivo",
+  // para no pisar un enlace que el usuario haya escrito/pegado manualmente
+  let ultimaUrlAutocompletada = null;
+
+  // Cuando llegamos desde un enlace directo a un producto, primero mostramos
+  // el producto en el catálogo (destacado) y luego bajamos a cotizar; en ese
+  // caso addToQuote no debe hacer su scroll automático al formulario.
+  let suprimirScrollCotizar = false;
+
   function addToQuote(nombre, btn){
     let foto = null;
     if(btn){
@@ -942,7 +978,16 @@
 
     sel.classList.remove('highlight'); void sel.offsetWidth; sel.classList.add('highlight');
 
-    document.getElementById('cotizar').scrollIntoView({behavior:'smooth'});
+    const urlProducto = setProductoUrlParam(slugify(nombre));
+    const archivoInput = document.getElementById('archivo');
+    if(urlProducto && archivoInput && (!archivoInput.value || archivoInput.value === ultimaUrlAutocompletada)){
+      archivoInput.value = urlProducto;
+      ultimaUrlAutocompletada = urlProducto;
+    }
+
+    if(!suprimirScrollCotizar){
+      document.getElementById('cotizar').scrollIntoView({behavior:'smooth'});
+    }
   }
   document.getElementById('chip-close').addEventListener('click', () => {
     document.getElementById('selected-chip').classList.remove('show');
@@ -950,6 +995,12 @@
     const opt = sel.querySelector('option[data-dyn]');
     if(opt) opt.remove();
     sel.selectedIndex = 0;
+    setProductoUrlParam(null);
+    const archivoInput = document.getElementById('archivo');
+    if(archivoInput && archivoInput.value === ultimaUrlAutocompletada){
+      archivoInput.value = '';
+      ultimaUrlAutocompletada = null;
+    }
   });
 
   // Productos por categoría — editar nombres/precios y reemplazar photo:null por la ruta de la foto (ej. photo:'/images/org-2mod.jpg')
@@ -1046,6 +1097,66 @@
     });
   });
   document.getElementById('catalog-detail-close').addEventListener('click', closeDetail);
+
+  // Resalta visualmente un elemento del catálogo (borde brillante temporal)
+  // y hace scroll hasta él, para que quede claro que "aterrizaste" en ese producto.
+  function destacarProducto(el){
+    if(!el) return;
+    el.scrollIntoView({behavior:'smooth', block:'center'});
+    el.style.transition = 'box-shadow .3s ease';
+    el.style.boxShadow = '0 0 0 4px rgba(255,196,0,.95), 0 0 34px 6px rgba(255,196,0,.55)';
+    setTimeout(() => { el.style.boxShadow = ''; }, 2800);
+  }
+
+  // Si la URL trae ?producto=<slug>, ese es un enlace directo a un producto
+  // específico del catálogo: se destaca ese producto y luego se lleva al
+  // formulario ya con los datos precargados, en vez de mostrar solo el home.
+  (function restoreProductoFromUrl(){
+    const slug = new URLSearchParams(window.location.search).get('producto');
+    if(!slug) return;
+
+    function extraerNombre(btn){
+      const m = btn.getAttribute('onclick') && btn.getAttribute('onclick').match(/addToQuote\('([^']*)'/);
+      return m ? m[1].replace(/\\'/g, "'") : null;
+    }
+
+    // 1) Botones "Agregar y cotizar" ya presentes en la página (carrusel, etc.)
+    const staticBtn = Array.from(document.querySelectorAll('.btn-quote')).find(b => {
+      const n = extraerNombre(b);
+      return n && slugify(n) === slug;
+    });
+    if(staticBtn){
+      suprimirScrollCotizar = true;
+      staticBtn.click();
+      suprimirScrollCotizar = false;
+      destacarProducto(staticBtn.closest('.carousel-slide') || staticBtn.closest('.catalog-card') || staticBtn.parentElement);
+      setTimeout(() => { document.getElementById('cotizar').scrollIntoView({behavior:'smooth'}); }, 2200);
+      return;
+    }
+
+    // 2) Variantes dentro de una categoría del catálogo: hay que abrir la
+    // categoría correspondiente antes de poder ver/hacer clic en la variante.
+    for(const catKey in CATALOGO){
+      const data = CATALOGO[catKey];
+      const match = data.productos.find(p => slugify(p.nombre + ' (' + data.titulo + ')') === slug);
+      if(!match) continue;
+      const card = document.querySelector('.catalog-card[data-cat="' + catKey + '"]');
+      if(card) card.click();
+      setTimeout(() => {
+        const variantBtn = Array.from(detailGrid.querySelectorAll('.btn-quote')).find(b => {
+          const n = extraerNombre(b);
+          return n && slugify(n) === slug;
+        });
+        if(!variantBtn) return;
+        suprimirScrollCotizar = true;
+        variantBtn.click();
+        suprimirScrollCotizar = false;
+        destacarProducto(variantBtn.closest('.variant-card'));
+        setTimeout(() => { document.getElementById('cotizar').scrollIntoView({behavior:'smooth'}); }, 2200);
+      }, 80);
+      break;
+    }
+  })();
 </script>
 
 <script>
