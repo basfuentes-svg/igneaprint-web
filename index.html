@@ -562,7 +562,6 @@
               <span class="mono">01 / 06</span>
               <h3>Organizador modular apilable</h3>
               <p>Compartimentos configurables que se apilan para adaptarse a tu escritorio.</p>
-              <span class="carousel-price">desde $6.990</span>
               <button type="button" class="btn-quote" onclick="addToQuote('Organizador modular apilable', this)">Agregar y cotizar</button>
             </div>
           </div>
@@ -575,7 +574,6 @@
               <span class="mono">02 / 06</span>
               <h3>Portalápices geométrico</h3>
               <p>Diseño facetado con base antideslizante, disponible en varios colores.</p>
-              <span class="carousel-price">desde $3.990</span>
               <button type="button" class="btn-quote" onclick="addToQuote('Portalápices geométrico', this)">Agregar y cotizar</button>
             </div>
           </div>
@@ -588,7 +586,6 @@
               <span class="mono">03 / 06</span>
               <h3>Pasacables ancla</h3>
               <p>Fija y oculta cables bajo el escritorio, con montaje adhesivo.</p>
-              <span class="carousel-price">desde $2.490</span>
               <button type="button" class="btn-quote" onclick="addToQuote('Pasacables ancla', this)">Agregar y cotizar</button>
             </div>
           </div>
@@ -601,7 +598,6 @@
               <span class="mono">04 / 06</span>
               <h3>Soporte para audífonos</h3>
               <p>Base estable de perfil bajo, apta para cascos grandes.</p>
-              <span class="carousel-price">desde $5.990</span>
               <button type="button" class="btn-quote" onclick="addToQuote('Soporte para audífonos', this)">Agregar y cotizar</button>
             </div>
           </div>
@@ -614,7 +610,6 @@
               <span class="mono">05 / 06</span>
               <h3>Elevador para laptop</h3>
               <p>Ángulo ergonómico ajustable, mejora la ventilación de tu equipo.</p>
-              <span class="carousel-price">desde $8.990</span>
               <button type="button" class="btn-quote" onclick="addToQuote('Elevador para laptop', this)">Agregar y cotizar</button>
             </div>
           </div>
@@ -627,7 +622,6 @@
               <span class="mono">06 / 06</span>
               <h3>Bandeja de accesorios</h3>
               <p>Compartimentos para clips, notas y tarjetas, con acabado mate.</p>
-              <span class="carousel-price">desde $4.490</span>
               <button type="button" class="btn-quote" onclick="addToQuote('Bandeja de accesorios', this)">Agregar y cotizar</button>
             </div>
           </div>
@@ -660,7 +654,6 @@
         <div class="catalog-info">
           <h3>Organizador modular apilable</h3>
           <span class="ver-mas">Ver productos ▾</span>
-          <span class="carousel-price">desde $6.990</span>
         </div>
       </div>
 
@@ -671,7 +664,6 @@
         <div class="catalog-info">
           <h3>Portalápices geométrico</h3>
           <span class="ver-mas">Ver productos ▾</span>
-          <span class="carousel-price">desde $3.990</span>
         </div>
       </div>
 
@@ -682,7 +674,6 @@
         <div class="catalog-info">
           <h3>Pasacables ancla</h3>
           <span class="ver-mas">Ver productos ▾</span>
-          <span class="carousel-price">desde $2.490</span>
         </div>
       </div>
 
@@ -693,7 +684,6 @@
         <div class="catalog-info">
           <h3>Soporte para audífonos</h3>
           <span class="ver-mas">Ver productos ▾</span>
-          <span class="carousel-price">desde $5.990</span>
         </div>
       </div>
 
@@ -704,7 +694,6 @@
         <div class="catalog-info">
           <h3>Elevador para laptop</h3>
           <span class="ver-mas">Ver productos ▾</span>
-          <span class="carousel-price">desde $8.990</span>
         </div>
       </div>
 
@@ -715,7 +704,6 @@
         <div class="catalog-info">
           <h3>Bandeja de accesorios</h3>
           <span class="ver-mas">Ver productos ▾</span>
-          <span class="carousel-price">desde $4.490</span>
         </div>
       </div>
 
@@ -1073,7 +1061,7 @@
         ? '<img src="' + p.photo + '" alt="' + p.nombre + '">'
         : '<div class="photo-slot">' + SLOT_SVG + '<span>Foto próximamente</span></div>';
       return '<div class="variant-card"><div class="variant-photo">' + foto + '</div>' +
-             '<div class="variant-info"><h4>' + p.nombre + '</h4><span>' + p.precio + '</span></div>' +
+             '<div class="variant-info"><h4>' + p.nombre + '</h4></div>' +
              '<button type="button" class="btn-quote" onclick="addToQuote(\'' + p.nombre.replace(/'/g, "\\'") + ' (' + data.titulo.replace(/'/g, "\\'") + ')\', this)">Agregar y cotizar</button></div>';
     }).join('');
   }
