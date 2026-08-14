@@ -1,13 +1,22 @@
-# IgneaPrint — sitio web
+# IgneaPrint — sitio web versión 51
 
-Versión 45 preparada para publicación estática en GitHub Pages.
+Paquete estático listo para GitHub Pages.
 
-## Publicar en GitHub
+## Cómo actualizar el repositorio
 
-1. Sube `index.html`, `README.md` y la carpeta `assets` a la raíz del repositorio.
-2. En GitHub, abre **Settings → Pages**.
-3. En **Build and deployment**, selecciona **Deploy from a branch**.
-4. Elige la rama `main` y la carpeta `/ (root)`, luego guarda.
+1. Elimina o reemplaza el `index.html` anterior.
+2. Sube el nuevo `index.html` a la raíz del repositorio.
+3. Sube la carpeta `assets` completa, sin cambiar su nombre.
+4. En **Settings → Pages**, utiliza la rama `main` y la carpeta `/ (root)`.
 
-No cambies el nombre ni la ubicación de la carpeta `assets`, porque `index.html` utiliza esas rutas para cargar las imágenes, el video y los íconos.
+La estructura debe mantenerse así:
+
+```text
+repositorio/
+├── index.html
+├── README.md
+└── assets/
+```
+
+La versión incluye el cotizador de múltiples productos, los enlaces directos a cada artículo, el selector de materiales y la cápsula flotante de cotización.
 

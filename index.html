@@ -295,6 +295,20 @@
   .selected-chip .chip-text b{color:var(--ember-light); display:block; font-size:11px; letter-spacing:0.04em; text-transform:uppercase;}
   .selected-chip .chip-close{margin-left:auto; background:none; border:none; color:var(--ivory-dim); cursor:pointer; font-size:16px; padding:2px 6px;}
   .selected-chip .chip-close:hover{color:var(--ember);}
+  .quote-cart-bar{display:none;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;margin-bottom:14px;border:1px solid rgba(255,196,0,.48);border-radius:14px;background:linear-gradient(135deg,rgba(255,196,0,.12),rgba(255,91,24,.05));}
+  .quote-cart-bar.show{display:flex}.quote-cart-bar strong{display:block;color:var(--sun);font-size:14px}.quote-cart-bar span{font-size:12px;color:var(--ivory-dim)}
+  .quote-cart-open{border:1px solid var(--sun);border-radius:999px;padding:9px 14px;background:var(--sun);color:#17110c;font-weight:800;cursor:pointer;white-space:nowrap}
+  .quote-drawer-backdrop{position:fixed;inset:0;z-index:130;background:rgba(7,5,4,.72);opacity:0;pointer-events:none;transition:.28s ease}.quote-drawer-backdrop.open{opacity:1;pointer-events:auto}
+  .quote-drawer{position:absolute;right:0;top:0;width:min(480px,100%);height:100%;overflow:auto;padding:24px;background:#171310;border-left:1px solid rgba(255,196,0,.42);transform:translateX(100%);transition:.32s ease;box-shadow:-20px 0 60px rgba(0,0,0,.48)}
+  .quote-drawer-backdrop.open .quote-drawer{transform:none}.quote-drawer-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:18px}.quote-drawer-head h3{font-size:24px}.quote-drawer-head p{font-size:12px;color:var(--ivory-dim);margin-top:4px}.quote-drawer-close{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ivory);cursor:pointer}
+  .quote-items{display:grid;gap:12px}.quote-item{display:grid;grid-template-columns:72px 1fr;gap:12px;padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--bg-2)}.quote-item img{width:72px;height:72px;object-fit:cover;border-radius:9px}.quote-item h4{font-size:14px;margin:1px 0 9px}.quote-item-controls{display:flex;align-items:center;gap:7px}.quote-item-controls button{width:29px;height:29px;border:1px solid var(--line);border-radius:50%;background:#211b17;color:var(--ivory);cursor:pointer}.quote-item-controls b{min-width:24px;text-align:center}.quote-remove{margin-left:auto!important;border:none!important;color:#ff8b63!important;background:transparent!important}.quote-product-link{display:inline-flex;align-items:center;gap:6px;margin-top:9px;color:var(--sun);font-size:11px;font-weight:700;text-decoration:none}.quote-product-link:hover{text-decoration:underline}.quote-item-fields{grid-column:1/-1;display:grid;gap:8px}.quote-item-fields input{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:9px;background:#100e0c;color:var(--ivory);font:12px 'Inter',sans-serif}.quote-empty{padding:30px 15px;text-align:center;border:1px dashed var(--line);border-radius:14px;color:var(--ivory-dim)}
+  .quote-drawer-total{display:flex;justify-content:space-between;margin:18px 0 8px;padding-top:16px;border-top:1px solid var(--line)}.quote-value-note{font-size:11px;color:var(--ivory-dim);margin-bottom:15px}.quote-drawer-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}.quote-drawer-actions button{min-height:44px;border-radius:999px;font-weight:800;cursor:pointer}.quote-continue{border:1px solid var(--line);background:transparent;color:var(--ivory)}.quote-finish{border:0;background:linear-gradient(90deg,var(--sun),var(--ember));color:#17110c}
+  .quote-fab{position:fixed;left:clamp(16px,2.5vw,34px);top:calc(50% - 30px);z-index:92;display:none;align-items:center;gap:11px;min-height:60px;padding:9px 11px 9px 18px;border:1px solid #ffe37a;border-radius:999px;background:linear-gradient(110deg,#ffc400,#ff9f18);color:#1b140c;box-shadow:0 16px 38px rgba(0,0,0,.38),0 0 0 0 rgba(255,196,0,.48),0 0 25px rgba(255,196,0,.34);cursor:pointer;transform:translate3d(0,var(--quote-travel,0px),0);transition:filter .25s ease,box-shadow .25s ease;will-change:transform}.quote-fab.show{display:flex;animation:quoteFabPulse 3.2s ease-out infinite}.quote-fab:hover,.quote-fab:focus-visible{filter:brightness(1.06);box-shadow:0 18px 42px rgba(0,0,0,.4),0 0 0 4px rgba(255,196,0,.2),0 0 34px rgba(255,196,0,.55);outline:none}.quote-fab-label{display:flex;flex-direction:column;text-align:left;line-height:1.05}.quote-fab-label strong{font-size:13px}.quote-fab-label small{margin-top:5px;font-size:9px;font-weight:700;opacity:.72;text-transform:uppercase;letter-spacing:.07em}.quote-fab-count{display:grid;place-items:center;min-width:39px;height:39px;padding:0 7px;border-radius:50%;background:#211a14;color:#fff4d1;font-weight:900;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}.quote-fab.just-added{animation:quoteFabAdded .65s cubic-bezier(.2,.9,.25,1) 1!important}@keyframes quoteFabPulse{0%,58%{box-shadow:0 16px 38px rgba(0,0,0,.38),0 0 0 0 rgba(255,196,0,.44),0 0 25px rgba(255,196,0,.34)}100%{box-shadow:0 16px 38px rgba(0,0,0,.38),0 0 0 17px rgba(255,196,0,0),0 0 25px rgba(255,196,0,.34)}}@keyframes quoteFabAdded{0%{scale:.92}55%{scale:1.12}100%{scale:1}}
+  .btn-whatsapp-quote{display:flex;align-items:center;justify-content:center;width:100%;margin-top:10px;padding:13px 18px;border:0;border-radius:999px;background:#25d366;color:#fff;font-weight:800;cursor:pointer;text-decoration:none}
+  .material-guide{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.material-guide-card{padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:rgba(20,16,13,.7);transition:.2s ease}.material-guide-card strong{display:flex;align-items:center;justify-content:space-between;gap:6px;color:var(--ivory);font-size:12px}.material-guide-card p{margin-top:5px;color:var(--ivory-dim);font-size:10.5px;line-height:1.4}.material-guide-card.active{border-color:var(--sun);background:rgba(255,196,0,.09);box-shadow:0 0 15px rgba(255,196,0,.13)}.material-stockout{padding:3px 6px;border-radius:999px;background:rgba(255,91,24,.15);color:#ff9b75;font:700 8px/1 'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.04em}.material-help{display:block;margin-top:8px;color:var(--ivory-dim);font-size:10.5px;line-height:1.45}
+  .quote-intro{min-width:0;max-width:440px}.quote-intro .display{max-width:420px;margin-top:10px;font-size:clamp(2.35rem,4.2vw,4.2rem)!important;line-height:.91!important;letter-spacing:-.025em!important;overflow-wrap:normal;word-break:normal}.quote-intro .quote-note{max-width:390px;color:#625a52!important;line-height:1.55}.quote form{min-width:0;padding:clamp(22px,3vw,34px)!important;background:rgba(255,253,249,.62)!important}.quote .field label{color:#514a44!important;font-weight:650!important;font-size:12px!important}.quote input,.quote select,.quote textarea{background:#211d1a!important;border-color:#49413b!important;color:#fff!important}.quote input::placeholder,.quote textarea::placeholder{color:#aaa19a!important;opacity:1}.quote-cart-bar{background:#fff8e7!important}.quote-cart-bar span{color:#6f665d!important}.selected-chip .chip-text{color:#fff!important}.material-guide-card{background:#eee7dd!important;border-color:#cfc5b8!important}.material-guide-card strong{color:#27221f!important}.material-guide-card p{color:#625a53!important;font-size:11px!important}.material-guide-card.active{background:#fff4d8!important;border-color:#e5a900!important}.material-guide-card[data-material="TPU flexible"]{background:#ded7ce!important}.material-help{color:#625a53!important;font-size:11px!important}.quote #submit-btn{width:100%;min-height:48px;font-size:14px;font-weight:800}.quote .req-mark{color:#d94d1b!important}
+  @media(max-width:900px){.quote-intro{max-width:680px}.quote-intro .display{max-width:680px;font-size:clamp(2.25rem,9vw,4.1rem)!important}.quote-logo{max-width:190px!important;margin:22px auto 8px!important}}
+  @media(max-width:600px){.quote-drawer{padding:18px}.quote-drawer-actions{grid-template-columns:1fr}.quote-cart-bar{align-items:flex-start;flex-direction:column}.quote-cart-open{width:100%}.quote-fab{top:auto;bottom:14px;min-height:54px;padding:8px 9px 8px 15px;font-size:12px;transform:none!important}.quote-fab-label small{display:none}.quote-fab-count{min-width:35px;height:35px}.quote-item{grid-template-columns:58px 1fr}.quote-item img{width:58px;height:58px}.material-guide{grid-template-columns:1fr}.quote form{padding:20px 16px!important}.quote-intro .display{font-size:clamp(2.1rem,12vw,3.35rem)!important;line-height:.94!important}}
 
   .social-modal-overlay{
     display:none; position:fixed; inset:0; background:rgba(8,6,4,0.72); z-index:100;
@@ -920,7 +934,7 @@
 
 <header>
   <nav>
-    <a href="/" aria-label="Ir al inicio" class="logo-link"><div class="logo">
+    <a href="./index.html" aria-label="Ir al inicio" class="logo-link"><div class="logo">
       <img src="./assets/asset-454e5b1d2bdd.webp" alt="IgneaPrint" class="logo-img">
       <span class="logo-text">IgneaPrint</span>
     </div></a>
@@ -1201,13 +1215,17 @@
 
 <section class="quote" id="cotizar">
   <div class="wrap quote-inner">
-    <div>
+    <div class="quote-intro">
       <span class="section-tag">Cotización</span>
       <h2 class="display">Cuéntanos qué necesitas imprimir</h2>
       <p class="quote-note">Te respondemos con precio y tiempo estimado dentro de 24 horas hábiles.</p>
       <img loading="lazy" decoding="async" id="quote-logo" class="quote-logo" alt="IgneaPrint">
     </div>
     <form id="quote-form">
+      <div class="quote-cart-bar" id="quote-cart-bar">
+        <div><strong id="quote-cart-title">Tu cotización</strong><span id="quote-cart-subtitle">Revisa los productos antes de enviar.</span></div>
+        <button type="button" class="quote-cart-open" onclick="openQuoteDrawer()">Revisar productos</button>
+      </div>
       <div class="field">
         <label for="nombre">Nombre<span class="req-mark">*</span></label>
         <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required maxlength="100">
@@ -1236,13 +1254,16 @@
       <div class="field">
         <label for="material">Material preferido</label>
         <select id="material" name="material">
-          <option>PLA</option>
-          <option>PETG</option>
-          <option>ABS</option>
-          <option>TPU flexible</option>
-          <option>Resina estándar</option>
-          <option>Nylon</option>
+          <option value="PLA">PLA — uso general y decorativo</option>
+          <option value="PETG">PETG — piezas resistentes y funcionales</option>
+          <option value="TPU flexible" disabled>TPU flexible — sin stock</option>
         </select>
+        <div class="material-guide" aria-label="Usos recomendados por material">
+          <div class="material-guide-card active" data-material="PLA"><strong>PLA</strong><p>Ideal para decoración, organizadores, figuras, kit cards y artículos de uso interior.</p></div>
+          <div class="material-guide-card" data-material="PETG"><strong>PETG</strong><p>Recomendado para piezas funcionales, soportes y productos expuestos a humedad o mayor esfuerzo.</p></div>
+          <div class="material-guide-card" data-material="TPU flexible"><strong>TPU flexible <span class="material-stockout">Sin stock</span></strong><p>Para piezas flexibles, protectores, agarres y componentes que necesitan doblarse.</p></div>
+        </div>
+        <small class="material-help">Si no sabes cuál elegir, selecciona PLA y te recomendaremos el material más adecuado al revisar tu diseño.</small>
       </div>
       <div class="field">
         <label for="archivo">Enlace al diseño o archivo — opcional</label>
@@ -1252,6 +1273,7 @@
         <label for="detalle">Detalle del proyecto</label>
         <textarea id="detalle" name="detalle" placeholder="Cantidad de piezas, dimensiones aproximadas, plazo..." maxlength="1500"></textarea>
       </div>
+      <input type="hidden" id="productos-cotizacion" name="productos_cotizacion">
       <!-- Honeypot anti-spam: Formspree ignora envíos donde _gotcha tiene valor -->
       <div style="display:none;" aria-hidden="true">
         <label for="_gotcha">No rellenar</label>
@@ -1262,6 +1284,17 @@
     </form>
   </div>
 </section>
+
+<button type="button" class="quote-fab" id="quote-fab" onclick="openQuoteDrawer()" aria-label="Abrir productos seleccionados"><span class="quote-fab-label"><strong>Mi cotización</strong><small>Revisar productos</small></span><span class="quote-fab-count" id="quote-fab-count">0</span></button>
+<div class="quote-drawer-backdrop" id="quote-drawer-backdrop" aria-hidden="true">
+  <aside class="quote-drawer" role="dialog" aria-modal="true" aria-labelledby="quote-drawer-title">
+    <div class="quote-drawer-head"><div><h3 id="quote-drawer-title">Tu cotización</h3><p>Agrega todos los productos que quieras y personaliza cada uno.</p></div><button type="button" class="quote-drawer-close" onclick="closeQuoteDrawer()" aria-label="Cerrar cotización">✕</button></div>
+    <div class="quote-items" id="quote-items"></div>
+    <div class="quote-drawer-total"><strong>Total de artículos</strong><strong id="quote-total-units">0</strong></div>
+    <p class="quote-value-note">El valor final depende de las medidas, material, colores, complejidad y cantidad.</p>
+    <div class="quote-drawer-actions"><button type="button" class="quote-continue" onclick="closeQuoteDrawer()">Seguir explorando</button><button type="button" class="quote-finish" onclick="goToQuoteForm()">Completar solicitud</button></div>
+  </aside>
+</div>
 
 <footer>
   <div class="footer-inner">
@@ -1335,6 +1368,8 @@
   // Dominio público del sitio: la URL que se comparte/precarga en el formulario
   // siempre apunta aquí, sin importar si se está probando en local o en otro entorno
   const SITE_BASE_URL = 'https://igneaprint.cl/';
+  // En GitHub Pages el catálogo vive directamente en index.html.
+  const PRODUCT_PAGE_URL = SITE_BASE_URL;
 
   // Actualiza (o quita) el parámetro ?producto= en la barra de direcciones local
   // (sin recargar la página) y devuelve la URL PÚBLICA equivalente
@@ -1345,7 +1380,7 @@
     else { url.searchParams.delete('producto'); }
     history.replaceState(null, '', url.pathname + url.search + url.hash);
     if(!slug) return null;
-    const publica = new URL(SITE_BASE_URL);
+    const publica = new URL(PRODUCT_PAGE_URL);
     publica.search = url.search;
     return publica.href;
   }
@@ -1359,6 +1394,62 @@
   // caso addToQuote no debe hacer su scroll automático al formulario.
   let suprimirScrollCotizar = false;
 
+  let quoteItems = [];
+  try{ quoteItems = JSON.parse(localStorage.getItem('igneaprintQuote') || '[]'); }catch(e){ quoteItems = []; }
+
+  function saveQuote(){
+    localStorage.setItem('igneaprintQuote', JSON.stringify(quoteItems));
+    renderQuote();
+  }
+  function escapeHtml(value){
+    return String(value || '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+  }
+  function getProductLink(item){
+    return PRODUCT_PAGE_URL + '?producto=' + encodeURIComponent(slugify(item.name)) + '#catalogo';
+  }
+  function quoteSummary(){
+    return quoteItems.map((item,index) => (index+1) + '. ' + item.name + '\nCantidad: ' + item.qty + '\nProducto en el catálogo: ' + getProductLink(item) + (item.url ? '\nDiseño compartido por el cliente: ' + item.url : '') + (item.notes ? '\nDetalle: ' + item.notes : '')).join('\n\n');
+  }
+  function renderQuote(){
+    const wrap = document.getElementById('quote-items');
+    const fab = document.getElementById('quote-fab');
+    const bar = document.getElementById('quote-cart-bar');
+    const count = quoteItems.reduce((sum,item) => sum + item.qty, 0);
+    document.getElementById('quote-fab-count').textContent = count;
+    document.getElementById('quote-total-units').textContent = count;
+    fab.classList.toggle('show', count > 0);
+    bar.classList.toggle('show', count > 0);
+    if(count){
+      document.getElementById('quote-cart-title').textContent = quoteItems.length + (quoteItems.length === 1 ? ' producto seleccionado' : ' productos seleccionados');
+      document.getElementById('quote-cart-subtitle').textContent = count + (count === 1 ? ' artículo en total' : ' artículos en total') + ' · puedes agregar más';
+    }
+    if(!quoteItems.length){ wrap.innerHTML = '<div class="quote-empty">Aún no agregas productos.<br>Explora el catálogo y presiona <b>Agregar y cotizar</b>.</div>'; }
+    else{
+      wrap.innerHTML = quoteItems.map((item,index) => '<article class="quote-item">' +
+        (item.photo ? '<img src="' + escapeHtml(item.photo) + '" alt="">' : '<div></div>') +
+        '<div><h4>' + escapeHtml(item.name) + '</h4><div class="quote-item-controls"><button type="button" onclick="changeQuoteQty(' + index + ',-1)">−</button><b>' + item.qty + '</b><button type="button" onclick="changeQuoteQty(' + index + ',1)">+</button><button type="button" class="quote-remove" onclick="removeQuoteItem(' + index + ')" aria-label="Eliminar">✕</button></div><a class="quote-product-link" href="' + escapeHtml(getProductLink(item)) + '" target="_blank" rel="noopener">↗ Ver producto cotizado</a></div>' +
+        '<div class="quote-item-fields"><input type="url" value="' + escapeHtml(item.url) + '" oninput="updateQuoteField(' + index + ',\'url\',this.value)" placeholder="URL del diseño (opcional)"><input type="text" value="' + escapeHtml(item.notes) + '" oninput="updateQuoteField(' + index + ',\'notes\',this.value)" placeholder="Color, medidas u observaciones"></div></article>').join('');
+    }
+    document.getElementById('productos-cotizacion').value = quoteSummary();
+  }
+  function openQuoteDrawer(){ const el=document.getElementById('quote-drawer-backdrop'); el.classList.add('open'); el.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+  function closeQuoteDrawer(){ const el=document.getElementById('quote-drawer-backdrop'); el.classList.remove('open'); el.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+  function changeQuoteQty(index,delta){ quoteItems[index].qty += delta; if(quoteItems[index].qty < 1) quoteItems.splice(index,1); saveQuote(); }
+  function removeQuoteItem(index){ quoteItems.splice(index,1); saveQuote(); }
+  function updateQuoteField(index,key,value){ quoteItems[index][key]=value; localStorage.setItem('igneaprintQuote',JSON.stringify(quoteItems)); renderQuoteSummaryOnly(); }
+  function renderQuoteSummaryOnly(){ document.getElementById('productos-cotizacion').value=quoteSummary(); }
+  function goToQuoteForm(){ closeQuoteDrawer(); document.getElementById('cotizar').scrollIntoView({behavior:'smooth'}); }
+  function sendQuoteWhatsApp(){
+    if(!quoteItems.length){ openQuoteDrawer(); return; }
+    const nombre=document.getElementById('nombre').value.trim() || 'Sin indicar';
+    const email=document.getElementById('email').value.trim() || 'Sin indicar';
+    const material=document.getElementById('material').value;
+    const extra=document.getElementById('detalle').value.trim();
+    const products=quoteItems.map((item,index)=>(index+1)+'. '+item.name+'\nCantidad: '+item.qty+(item.url?'\nURL: '+item.url:'')+(item.notes?'\nDetalle: '+item.notes:'')).join('\n\n');
+    const message='Hola IgneaPrint, quiero solicitar una cotización:\n\n'+products+'\n\nMaterial preferido: '+material+(extra?'\nDetalle general: '+extra:'')+'\n\nNombre: '+nombre+'\nCorreo: '+email+'\n\nQuedo atento a disponibilidad y valor final.';
+    window.open('https://wa.me/56979969937?text='+encodeURIComponent(message),'_blank','noopener');
+  }
+
   function addToQuote(nombre, btn){
     let foto = null;
     if(btn){
@@ -1368,6 +1459,13 @@
                     (card && card.querySelector('.variant-photo img'));
       if(imgEl) foto = imgEl.src;
     }
+    const existing = quoteItems.find(item => item.name === nombre);
+    if(existing) existing.qty += 1;
+    else quoteItems.push({name:nombre,qty:1,photo:foto || '',url:'',notes:'',productLink:getProductLink({name:nombre})});
+    saveQuote();
+    const quoteFab = document.getElementById('quote-fab');
+    if(quoteFab){ quoteFab.classList.remove('just-added'); void quoteFab.offsetWidth; quoteFab.classList.add('just-added'); setTimeout(() => quoteFab.classList.remove('just-added'), 700); }
+    if(btn){ const previous=btn.textContent; btn.textContent='✓ Agregado'; btn.classList.add('added'); setTimeout(()=>{btn.textContent=previous;btn.classList.remove('added');},1100); }
     const sel = document.getElementById('producto');
     let opt = sel.querySelector('option[data-dyn]');
     if(!opt){
@@ -1395,9 +1493,7 @@
       ultimaUrlAutocompletada = urlProducto;
     }
 
-    if(!suprimirScrollCotizar){
-      document.getElementById('cotizar').scrollIntoView({behavior:'smooth'});
-    }
+    if(!suprimirScrollCotizar) openQuoteDrawer();
   }
   document.getElementById('chip-close').addEventListener('click', () => {
     document.getElementById('selected-chip').classList.remove('show');
@@ -1412,8 +1508,11 @@
       ultimaUrlAutocompletada = null;
     }
   });
+  document.getElementById('quote-drawer-backdrop').addEventListener('click', function(e){ if(e.target===this) closeQuoteDrawer(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeQuoteDrawer(); });
+  renderQuote();
 
-  // Productos por categoría — editar nombres/precios y reemplazar photo:null por la ruta de la foto (ej. photo:'/images/org-2mod.jpg')
+  // Productos por categoría — editar nombres/precios y reemplazar photo:null por la ruta de la foto (ej. photo:'./assets/images/org-2mod.jpg')
   const CATALOGO = {
     'organizador': {
       titulo: 'Organizador modular apilable',
@@ -1566,11 +1665,7 @@
       return n && slugify(n) === slug;
     });
     if(staticBtn){
-      suprimirScrollCotizar = true;
-      staticBtn.click();
-      suprimirScrollCotizar = false;
       destacarProducto(staticBtn.closest('.carousel-slide') || staticBtn.closest('.catalog-card') || staticBtn.parentElement);
-      setTimeout(() => { document.getElementById('cotizar').scrollIntoView({behavior:'smooth'}); }, 2200);
       return;
     }
 
@@ -1588,11 +1683,7 @@
           return n && slugify(n) === slug;
         });
         if(!variantBtn) return;
-        suprimirScrollCotizar = true;
-        variantBtn.click();
-        suprimirScrollCotizar = false;
         destacarProducto(variantBtn.closest('.variant-card'));
-        setTimeout(() => { document.getElementById('cotizar').scrollIntoView({behavior:'smooth'}); }, 2200);
       }, 80);
       break;
     }
@@ -1643,6 +1734,12 @@
   const form = document.getElementById('quote-form');
   const btn = document.getElementById('submit-btn');
   const status = document.getElementById('form-status');
+  const materialSelect = document.getElementById('material');
+  if(materialSelect){
+    const syncMaterialGuide = () => document.querySelectorAll('.material-guide-card').forEach(card => card.classList.toggle('active', card.dataset.material === materialSelect.value));
+    materialSelect.addEventListener('change', syncMaterialGuide);
+    syncMaterialGuide();
+  }
 
   form.addEventListener('submit', async function(e){
     e.preventDefault();
@@ -1661,6 +1758,8 @@
         status.textContent = 'Solicitud enviada. Te responderemos dentro de 24 horas hábiles.';
         status.className = 'form-status show ok';
         form.reset();
+        quoteItems = [];
+        saveQuote();
       } else {
         status.textContent = 'No pudimos enviar tu solicitud. Intenta de nuevo o escríbenos directo.';
         status.className = 'form-status show err';
@@ -1892,8 +1991,8 @@
 </script>
 <script>
   (() => {
-    const bubble = document.querySelector('.whatsapp-float');
-    if (!bubble || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const bubbles = document.querySelectorAll('.whatsapp-float, .quote-fab');
+    if (!bubbles.length || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     let previousY = scrollY;
     let target = 0;
     let current = 0;
@@ -1901,7 +2000,7 @@
     const animate = () => {
       current += (target - current) * .16;
       target *= .94;
-      bubble.style.setProperty('--wa-travel', current.toFixed(2) + 'px');
+      bubbles.forEach(bubble => bubble.style.setProperty(bubble.classList.contains('quote-fab') ? '--quote-travel' : '--wa-travel', current.toFixed(2) + 'px'));
       if (Math.abs(current) > .15 || Math.abs(target) > .15) frame = requestAnimationFrame(animate);
       else frame = 0;
     };
